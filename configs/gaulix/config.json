@@ -1,0 +1,98 @@
+{
+  "config": {
+    "device": {
+      "role": "CLIENT",
+      "rebroadcastMode": "ALL",
+      "nodeInfoBroadcastSecs": 3600,
+      "isManaged": false
+    },
+    "lora": {
+      "usePreset": true,
+      "modemPreset": "LONG_MODERATE",
+      "bandwidth": 0,
+      "spreadFactor": 0,
+      "codingRate": 0,
+      "frequencyOffset": 0,
+      "region": "EU_868",
+      "hopLimit": 3,
+      "txEnabled": true,
+      "txPower": 27,
+      "channelNum": 0,
+      "overrideDutyCycle": false,
+      "sx126xRxBoostedGain": true,
+      "overrideFrequency": 869.4625244140625
+    }
+  },
+  "modules": {
+    "neighborInfo": {
+      "enabled": true,
+      "updateInterval": 14400
+    }
+  },
+  "channels": [
+    {
+      "index": 0,
+      "settings": {
+        "channelNum": 0,
+        "psk": "AQ==",
+        "name": "Fr_Balise",
+        "id": 0,
+        "uplinkEnabled": true,
+        "downlinkEnabled": true,
+        "moduleSettings": {
+          "positionPrecision": 32,
+          "isClientMuted": false
+        }
+      },
+      "role": "PRIMARY"
+    },
+    {
+      "index": 1,
+      "settings": {
+        "channelNum": 0,
+        "psk": "AQ==",
+        "name": "Fr_EMCOM",
+        "id": 0,
+        "uplinkEnabled": true,
+        "downlinkEnabled": true,
+        "moduleSettings": {
+          "positionPrecision": 32,
+          "isClientMuted": false
+        }
+      },
+      "role": "SECONDARY"
+    },
+    {
+      "index": 2,
+      "settings": {
+        "channelNum": 0,
+        "psk": "AQ==",
+        "name": "Fr_BlaBla",
+        "id": 0,
+        "uplinkEnabled": true,
+        "downlinkEnabled": true,
+        "moduleSettings": {
+          "positionPrecision": 32,
+          "isClientMuted": false
+        }
+      },
+      "role": "SECONDARY"
+    },
+    {
+      "index": 3,
+      "settings": {
+        "channelNum": 0,
+        "psk": "AQ==",
+        "name": "Fr_Tech",
+        "id": 0,
+        "uplinkEnabled": true,
+        "downlinkEnabled": true,
+        "moduleSettings": {
+          "positionPrecision": 32,
+          "isClientMuted": false
+        }
+      },
+      "role": "SECONDARY"
+    }
+  ]
+}
