@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,17 +17,14 @@
     "noEmit": true,
     "baseUrl": "./",
     "paths": {
-      "@configs/*": ["./configs/*"],
+      "@configs/*": ["./configs/*"]
     },
     "importHelpers": true,
     "removeComments": true,
     "strictNullChecks": true,
-    "types": [
-      "jest",
-      "node",
-    ],
+    "types": ["jest", "node"],
     "strictPropertyInitialization": false,
     "experimentalDecorators": true,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true
   }
 }

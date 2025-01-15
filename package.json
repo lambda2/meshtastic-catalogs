@@ -1,17 +1,48 @@
 {
-  "name": "meshtastic-configs",
+  "name": "@lambda2/meshtastic-configs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "description": "Browser library for interfacing with meshtastic devices",
+  "license": "GPL-3.0-only",
   "scripts": {
+    "lint": "pnpm biome format . --fix",
+    "build": "tsup && pnpm biome format .",
+    "generate:docs": "typedoc src/index.ts",
+    "prebuild": "tsx src/index.ts",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "meshtastic library typescript javascript"
+  ],
+  "publishConfig": {
+    "provenance": true
+  },
+  "sideEffects": false,
+  "packageManager": "pnpm@9.1.4",
+  "module": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.ts",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/meshtastic/js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meshtastic/js.git"
+  },
+  "type": "module",
+  "author": "lambda2",
   "dependencies": {
     "@bufbuild/protobuf": "^1.10.0",
-    "@meshtastic/js": "2.5.9-2"
+    "@meshtastic/js": "2.5.9-2",
+    "deepmerge": "^4.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.2",
@@ -21,6 +52,8 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "tslib": "^2.6.3",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
     "typescript": "^5.5.2"
   }
 }

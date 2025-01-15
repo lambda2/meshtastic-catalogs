@@ -1,11 +1,8 @@
+import { validateConfig } from "../src/validator";
 
-import { validateConfig } from '../src/validator'
-
-describe('testing index file', () => {
-  test('can validate', () => {
-    validateConfig({})
+describe("testing index file", () => {
+  test("can validate", () => {
+    validateConfig({});
     expect(0 + 0).toBe(0);
   });
-
-
 });
