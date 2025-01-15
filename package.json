@@ -31,11 +31,11 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/meshtastic/js/issues"
+    "url": "https://github.com/lambda2/meshtastic-configs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meshtastic/js.git"
+    "url": "git+https://github.com/lambda2/meshtastic-configs.git"
   },
   "type": "module",
   "author": "lambda2",
