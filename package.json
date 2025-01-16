@@ -1,6 +1,6 @@
 {
   "name": "@lambda2/meshtastic-catalogs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "description": "Browser library for interfacing with meshtastic devices",
   "license": "GPL-3.0-only",
@@ -40,6 +40,7 @@
   "author": "lambda2",
   "dependencies": {
     "change-case": "^5.4.4",
+    "deep-object-diff": "^1.1.9",
     "deepmerge": "^4.3.1"
   },
   "devDependencies": {
