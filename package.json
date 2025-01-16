@@ -1,6 +1,6 @@
 {
   "name": "@lambda2/meshtastic-configs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "Browser library for interfacing with meshtastic devices",
   "license": "GPL-3.0-only",
