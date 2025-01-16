@@ -8,7 +8,7 @@
     "lint": "pnpm biome format . --fix",
     "build": "pnpm prebuild && tsup",
     "prebuild": "tsx scripts/build-catalog.ts",
-    "test": "jest"
+    "test": "pnpm prebuild && jest"
   },
   "keywords": [
     "meshtastic library typescript javascript"
