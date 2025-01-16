@@ -1,5 +1,5 @@
 {
-  "name": "@lambda2/meshtastic-configs",
+  "name": "@lambda2/meshtastic-catalogs",
   "version": "1.0.3",
   "main": "index.js",
   "description": "Browser library for interfacing with meshtastic devices",
@@ -10,7 +10,9 @@
     "prebuild": "tsx scripts/build-catalog.ts",
     "test": "pnpm prebuild && jest"
   },
-  "keywords": ["meshtastic library typescript javascript"],
+  "keywords": [
+    "meshtastic library typescript javascript"
+  ],
   "publishConfig": {
     "provenance": true
   },
@@ -24,13 +26,15 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "bugs": {
-    "url": "https://github.com/lambda2/meshtastic-configs/issues"
+    "url": "https://github.com/lambda2/meshtastic-catalogs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lambda2/meshtastic-configs.git"
+    "url": "git+https://github.com/lambda2/meshtastic-catalogs.git"
   },
   "type": "module",
   "author": "lambda2",
