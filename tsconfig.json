@@ -17,7 +17,8 @@
     "noEmit": true,
     "baseUrl": "./",
     "paths": {
-      "@configs/*": ["./configs/*"]
+      "@catalogs/*": ["./catalogs/*"],
+      "@/*": ["./src/*"]
     },
     "importHelpers": true,
     "removeComments": true,

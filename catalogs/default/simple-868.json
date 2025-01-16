@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Client 868MHz",
+    "description": "Configuration simple pour Client EU 868MHz",
+    "website": "https://meshtastic.org",
+    "documentation": "https://meshtastic.org/docs/getting-started/initial-config/",
+    "logo": "https://meshtastic.org/design/logo/svg/Mesh_Logo_Black.svg"
+  },
+  "config": {
+    "device": {
+      "role": "CLIENT",
+      "rebroadcastMode": "ALL",
+      "nodeInfoBroadcastSecs": 3600,
+      "isManaged": false
+    },
+    "lora": {
+      "usePreset": true,
+      "modemPreset": "LONG_FAST",
+      "bandwidth": 0,
+      "spreadFactor": 0,
+      "codingRate": 0,
+      "frequencyOffset": 0,
+      "region": "EU_868",
+      "hopLimit": 3,
+      "txEnabled": true,
+      "txPower": 27,
+      "channelNum": 0,
+      "overrideDutyCycle": false,
+      "sx126xRxBoostedGain": true
+    }
+  },
+  "modules": {
+    "neighborInfo": {
+      "enabled": true,
+      "updateInterval": 14400
+    }
+  },
+  "channels": [
+    {
+      "index": 0,
+      "settings": {
+        "channelNum": 0,
+        "psk": "AQ==",
+        "name": "",
+        "id": 0,
+        "uplinkEnabled": true,
+        "downlinkEnabled": true,
+        "moduleSettings": {
+          "positionPrecision": 32,
+          "isClientMuted": false
+        }
+      },
+      "role": "PRIMARY"
+    }
+  ]
+}

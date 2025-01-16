@@ -1,4 +1,11 @@
 {
+  "metadata": {
+    "name": "Gaulix Client 868MHz 4Cx",
+    "description": "Configuration standard Gaulix en 868MHz avec 4 canaux",
+    "website": "https://gaulix.fr",
+    "documentation": "https://gaulix.fr/les-qr-codes-de-parametrages-rapides-2/",
+    "logo": "https://gaulix.fr/wp-content/uploads/logo_Gaulix_v.png"
+  },
   "config": {
     "device": {
       "role": "CLIENT",

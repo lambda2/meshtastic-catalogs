@@ -1,26 +1,16 @@
-import { readdirSync } from "node:fs";
-import { dirname, join } from "node:path";
-import type { ConfigDefinition, ConfigMetadata } from "./types";
+import type { CatalogDefinition } from "./types";
+import deepmerge from "deepmerge";
 
-const appDir = dirname("..");
+export const applyCatalog = (
+	currentConfig: CatalogDefinition,
+	catalogToApply: CatalogDefinition,
+) => {
+	return deepmerge<CatalogDefinition>(currentConfig, catalogToApply);
+};
 
-const CONFIGS_DIR = join(appDir, "configs");
+export const getCatalogs = async () => {
+	const data = await import("./catalogs/index");
+	console.log(data);
 
-const configs = {} as { [key: string]: ConfigDefinition };
-
-readdirSync(CONFIGS_DIR).map(async (fileName) => {
-  console.log(`Processing ${CONFIGS_DIR}/${fileName}...`);
-
-  const meta = (await import(
-    `${CONFIGS_DIR}/${fileName}/metadata.json`
-  )) as ConfigMetadata;
-  const config = (await import(
-    `${CONFIGS_DIR}/${fileName}/config.json`
-  )) as ConfigDefinition;
-
-  console.log("Got: ", meta, config);
-
-  configs[meta.name] = config;
-});
-
-export default configs;
+	return data;
+};

@@ -6,12 +6,13 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "lint": "pnpm biome format . --fix",
-    "build": "tsup && pnpm biome format .",
-    "generate:docs": "typedoc src/index.ts",
-    "prebuild": "tsx src/index.ts",
+    "build": "pnpm prebuild && tsup",
+    "prebuild": "tsx scripts/build-catalog.ts",
     "test": "jest"
   },
-  "keywords": ["meshtastic library typescript javascript"],
+  "keywords": [
+    "meshtastic library typescript javascript"
+  ],
   "publishConfig": {
     "provenance": true
   },
@@ -25,7 +26,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/lambda2/meshtastic-configs/issues"
   },
@@ -38,6 +41,7 @@
   "dependencies": {
     "@bufbuild/protobuf": "^1.10.0",
     "@meshtastic/js": "2.5.9-2",
+    "change-case": "^5.4.4",
     "deepmerge": "^4.3.1"
   },
   "devDependencies": {

@@ -1,8 +1,22 @@
-import { validateConfig } from "../src/validator";
+import { applyCatalog, getCatalogs } from "../src/index";
 
-describe("testing index file", () => {
-  test("can validate", () => {
-    validateConfig({});
-    expect(0 + 0).toBe(0);
-  });
+import * as Catalogs from "../src/catalogs";
+
+describe("#applyCatalog", () => {
+	test("can apply empty config", () => {
+		const initial = { metadata: { name: "empty" } };
+		const toApply = Catalogs.DefaultSimple_868;
+		const final = applyCatalog(initial, toApply);
+		expect(final).toMatchObject(toApply);
+	});
+});
+
+describe("#getCatalogs", () => {
+	test("can get catalogs list", async () => {
+		const catalogs = await getCatalogs();
+
+		expect(catalogs.default.length).toBeGreaterThan(0);
+		expect(catalogs.DefaultSimple_868).not.toBeNull();
+		expect(catalogs.DefaultSimple_868.metadata.name).not.toBeNull();
+	});
 });
