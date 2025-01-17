@@ -1,8 +1,8 @@
 {
-  "name": "@lambda2/meshtastic-catalogs",
-  "version": "1.0.4",
+  "name": "meshtastic-catalogs",
+  "version": "1.0.5",
   "main": "index.js",
-  "description": "Browser library for interfacing with meshtastic devices",
+  "description": "Ready-to-use configurations for meshtastic devices",
   "license": "GPL-3.0-only",
   "scripts": {
     "lint": "pnpm biome format . --fix",
