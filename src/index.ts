@@ -4,6 +4,8 @@ import deepmerge from "deepmerge";
 import catalogs from "./catalogs/index";
 import { detailedDiff } from "deep-object-diff";
 
+export type { CatalogDefinition };
+
 export const applyCatalog = (
   currentConfig: CatalogDefinition,
   catalogToApply: CatalogDefinition,
