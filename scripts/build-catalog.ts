@@ -59,9 +59,9 @@ function indexFileForCatalogs(catalogs: { [key: string]: CatalogDefinition }) {
     })
     .join("\n");
   const moduleList = [
-    `export default [ ${Object.keys(catalogs)
+    `export default { ${Object.keys(catalogs)
       .map((e) => changeCase.pascalCase(e))
-      .join(", ")} ];`,
+      .join(", ")} };`,
   ].join("\n");
 
   return [modules, moduleList].join("\n");
@@ -72,9 +72,10 @@ function generateDefinitionForCatalog(
   catalog: CatalogDefinition,
 ) {
   const moduleName = changeCase.pascalCase(name);
+  const catalogWithIdentifier = { ...{ id: moduleName }, ...catalog };
   return [
     `import type { CatalogDefinition } from "../../src/types";`,
-    `const ${moduleName}: CatalogDefinition = ${JSON.stringify(catalog, null, 2)};`,
+    `const ${moduleName}: CatalogDefinition = ${JSON.stringify(catalogWithIdentifier, null, 2)};`,
     `export { ${moduleName} };`,
   ].join("\n");
 }

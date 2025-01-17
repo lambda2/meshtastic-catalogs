@@ -18,8 +18,12 @@ export const diffCatalog = (
   return detailedDiff(currentConfig, catalogToCompare);
 };
 
-export const getCatalogs = async () => {
-  return catalogs;
+export const getCatalogList = () => {
+  return Object.values(catalogs);
+};
+
+export const getCatalog = (id: string) => {
+  return getCatalogList().find((c) => c?.id === id);
 };
 
 export { catalogs };

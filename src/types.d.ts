@@ -14,6 +14,7 @@ export interface CatalogMetadata {
 }
 
 export interface CatalogDefinition {
+  id: string;
   metadata: CatalogMetadata;
   config?: DeepPartial<Config>;
   modules?: DeepPartial<ModuleConfig>;
