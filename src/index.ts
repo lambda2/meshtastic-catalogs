@@ -1,21 +1,23 @@
-import type { CatalogDefinition } from "./types";
+// biome-ignore lint/style/useExportType: <explanation>
+import * as Types from "./types";
 import deepmerge from "deepmerge";
 
 import catalogs from "./catalogs/index";
 import { detailedDiff } from "deep-object-diff";
 
-export type { CatalogDefinition };
+// biome-ignore lint/style/useExportType: <explanation>
+export { Types };
 
 export const applyCatalog = (
-  currentConfig: CatalogDefinition,
-  catalogToApply: CatalogDefinition,
+  currentConfig: Types.CatalogDefinition,
+  catalogToApply: Types.CatalogDefinition,
 ) => {
-  return deepmerge<CatalogDefinition>(currentConfig, catalogToApply);
+  return deepmerge<Types.CatalogDefinition>(currentConfig, catalogToApply);
 };
 
 export const diffCatalog = (
-  currentConfig: CatalogDefinition,
-  catalogToCompare: CatalogDefinition,
+  currentConfig: Types.CatalogDefinition,
+  catalogToCompare: Types.CatalogDefinition,
 ) => {
   return detailedDiff(currentConfig, catalogToCompare);
 };
