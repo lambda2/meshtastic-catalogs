@@ -1,7 +1,6 @@
 {
   "name": "meshtastic-catalogs",
-  "version": "1.0.6",
-  "main": "index.js",
+  "version": "1.0.7",
   "description": "Ready-to-use configurations for meshtastic devices",
   "license": "GPL-3.0-only",
   "scripts": {
@@ -10,21 +9,20 @@
     "prebuild": "tsx scripts/build-catalog.ts",
     "test": "pnpm prebuild && jest"
   },
-  "keywords": ["meshtastic library typescript javascript"],
+  "keywords": [
+    "meshtastic library typescript javascript"
+  ],
   "publishConfig": {
     "provenance": true
   },
   "sideEffects": false,
   "packageManager": "pnpm@9.1.4",
+  "main": "./dist/index.ts",
   "module": "./dist/index.ts",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.ts",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/lambda2/meshtastic-catalogs/issues"
   },
