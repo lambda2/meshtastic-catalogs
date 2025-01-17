@@ -1,32 +1,33 @@
 {
-  "include": ["src"],
-  "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": [],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "declaration": true,
-    "noEmit": true,
-    "baseUrl": "./",
-    "paths": {
-      "@catalogs/*": ["./catalogs/*"],
-      "@/*": ["./src/*"]
-    },
-    "importHelpers": true,
-    "removeComments": true,
-    "strictNullChecks": true,
-    "types": ["jest", "node"],
-    "strictPropertyInitialization": false,
-    "experimentalDecorators": true,
-    "allowImportingTsExtensions": true
-  }
+	"include": ["src/**/*"],
+	"files": ["src/index.ts"],
+	"compilerOptions": {
+		"target": "es2015",
+		"useDefineForClassFields": true,
+		"lib": ["es2015"],
+		"allowJs": false,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "es2015",
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"declaration": true,
+		"noEmit": true,
+		"baseUrl": "./",
+		"paths": {
+			"@catalogs/*": ["./catalogs/*"],
+			"@/*": ["./src/*"]
+		},
+		"importHelpers": true,
+		"removeComments": true,
+		"strictNullChecks": true,
+		"types": ["jest", "node"],
+		"strictPropertyInitialization": false,
+		"experimentalDecorators": true,
+		"allowImportingTsExtensions": true
+	}
 }

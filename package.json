@@ -9,9 +9,7 @@
     "prebuild": "tsx scripts/build-catalog.ts",
     "test": "pnpm prebuild && jest"
   },
-  "keywords": [
-    "meshtastic library typescript javascript"
-  ],
+  "keywords": ["meshtastic library typescript javascript"],
   "publishConfig": {
     "provenance": true
   },
@@ -26,9 +24,11 @@
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "typings": "./dist/index.d.ts",
+  "syntax": {
+    "esmodules": "./dist/index.modern.js"
+  },
+  "files": ["dist"],
   "bugs": {
     "url": "https://github.com/lambda2/meshtastic-catalogs/issues"
   },
@@ -36,7 +36,6 @@
     "type": "git",
     "url": "git+https://github.com/lambda2/meshtastic-catalogs.git"
   },
-  "type": "module",
   "author": "lambda2",
   "dependencies": {
     "change-case": "^5.4.4",
