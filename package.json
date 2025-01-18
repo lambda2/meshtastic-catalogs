@@ -1,13 +1,13 @@
 {
   "name": "meshtastic-catalogs",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Ready-to-use configurations for meshtastic devices",
   "license": "GPL-3.0-only",
   "scripts": {
     "lint": "pnpm biome format . --fix",
-    "build": "pnpm prebuild && microbundle",
+    "build": "microbundle",
     "prebuild": "tsx scripts/build-catalog.ts",
-    "test": "pnpm prebuild && jest"
+    "test": "jest"
   },
   "keywords": [
     "meshtastic library typescript javascript"

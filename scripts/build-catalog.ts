@@ -1,17 +1,31 @@
 import {
-  readdirSync,
-  lstatSync,
-  existsSync,
-  mkdirSync,
-  writeFileSync,
-  readFileSync,
+	readdirSync,
+	lstatSync,
+	existsSync,
+	mkdirSync,
+	writeFileSync,
+	readFileSync,
 } from "node:fs";
-import type { CatalogDefinition, CatalogMetadata } from "../src/types";
+import type {
+	CatalogDefinition,
+	CatalogInitialDefinition,
+	CatalogMetadata,
+	Config,
+	DeepPartial,
+} from "../src/types";
 import * as changeCase from "change-case";
 
 import { fileURLToPath } from "node:url";
 
 import path from "node:path";
+import {
+	Config_DeviceConfig_RebroadcastMode,
+	Config_DeviceConfig_Role,
+	Config_LoRaConfig_ModemPreset,
+	Config_LoRaConfig_RegionCode,
+} from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/config_pb";
+// biome-ignore lint/style/useImportType: <explanation>
+import * as LocalOnly from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/localonly_pb.js";
 
 const appDir = path.dirname("..");
 const __filename = fileURLToPath(import.meta.url);
@@ -21,86 +35,86 @@ const CATALOGS_DIR = path.join(__dirname, "..", "catalogs");
 const CATALOGS_OUT_DIR = path.join(__dirname, "..", "src", "catalogs");
 
 function getCatalogs() {
-  const catalogs = {} as { [key: string]: CatalogDefinition };
+	const catalogs = {} as { [key: string]: CatalogDefinition };
 
-  readdirSync(CATALOGS_DIR).map(async (catName) => {
-    const dirName = `${CATALOGS_DIR}/${catName}`;
+	readdirSync(CATALOGS_DIR).map(async (catName) => {
+		const dirName = `${CATALOGS_DIR}/${catName}`;
 
-    const dir = lstatSync(dirName);
+		const dir = lstatSync(dirName);
 
-    if (dir.isDirectory()) {
-      readdirSync(dirName).map(async (fileName) => {
-        console.log(`Processing ${dirName}/${fileName}...`);
+		if (dir.isDirectory()) {
+			readdirSync(dirName).map(async (fileName) => {
+				console.log(`Processing ${dirName}/${fileName}...`);
 
-        const rawCatalog = readFileSync(`${dirName}/${fileName}`, {
-          encoding: "utf8",
-        });
-        const catalog = JSON.parse(rawCatalog) as CatalogDefinition;
+				const rawCatalog = readFileSync(`${dirName}/${fileName}`, {
+					encoding: "utf8",
+				});
+				const catalog = JSON.parse(rawCatalog) as CatalogDefinition;
 
-        catalogs[`${catName}-${fileName.replace(".json", "")}`] = catalog;
-      });
-    }
-  });
+				catalogs[`${catName}-${fileName.replace(".json", "")}`] = catalog;
+			});
+		}
+	});
 
-  return catalogs;
+	return catalogs;
 }
 
 function indexFileForCatalogs(catalogs: { [key: string]: CatalogDefinition }) {
-  const modules = Object.keys(catalogs)
-    .flatMap((cat) => {
-      const moduleName = changeCase.pascalCase(cat);
-      const fileName = changeCase.camelCase(cat);
+	const modules = Object.keys(catalogs)
+		.flatMap((cat) => {
+			const moduleName = changeCase.pascalCase(cat);
+			const fileName = changeCase.camelCase(cat);
 
-      return [
-        `import { ${moduleName} } from "./${fileName}";`,
-        `export { ${moduleName} };`,
-        "",
-      ];
-    })
-    .join("\n");
-  const moduleList = [
-    `export default { ${Object.keys(catalogs)
-      .map((e) => changeCase.pascalCase(e))
-      .join(", ")} };`,
-  ].join("\n");
+			return [
+				`import { ${moduleName} } from "./${fileName}";`,
+				`export { ${moduleName} };`,
+				"",
+			];
+		})
+		.join("\n");
+	const moduleList = [
+		`export default { ${Object.keys(catalogs)
+			.map((e) => changeCase.pascalCase(e))
+			.join(", ")} };`,
+	].join("\n");
 
-  return [modules, moduleList].join("\n");
+	return [modules, moduleList].join("\n");
 }
 
 function generateDefinitionForCatalog(
-  name: string,
-  catalog: CatalogDefinition,
+	name: string,
+	catalog: CatalogDefinition,
 ) {
-  const moduleName = changeCase.pascalCase(name);
-  const catalogWithIdentifier = { ...{ id: moduleName }, ...catalog };
-  return [
-    `import type { CatalogDefinition } from "../../src/types";`,
-    `const ${moduleName}: CatalogDefinition = ${JSON.stringify(catalogWithIdentifier, null, 2)};`,
-    `export { ${moduleName} };`,
-  ].join("\n");
+	const moduleName = changeCase.pascalCase(name);
+	const catalogWithIdentifier = { ...{ id: moduleName }, ...catalog };
+	return [
+		`import type { CatalogDefinition } from "../../src/types";`,
+		`const ${moduleName}: CatalogDefinition = ${JSON.stringify(catalogWithIdentifier, null, 2)};`,
+		`export { ${moduleName} };`,
+	].join("\n");
 }
 
 function buildCatalogs() {
-  if (!existsSync(CATALOGS_OUT_DIR)) {
-    mkdirSync(CATALOGS_OUT_DIR);
-  }
+	if (!existsSync(CATALOGS_OUT_DIR)) {
+		mkdirSync(CATALOGS_OUT_DIR);
+	}
 
-  const catalogs = getCatalogs();
+	const catalogs = getCatalogs();
 
-  Object.keys(catalogs).map((catName) => {
-    const catContent = generateDefinitionForCatalog(catName, catalogs[catName]);
-    const fileName = changeCase.camelCase(catName);
-    writeFileSync(`${CATALOGS_OUT_DIR}/${fileName}.ts`, catContent, {
-      encoding: "utf8",
-      flag: "w",
-    });
-  });
+	Object.keys(catalogs).map((catName) => {
+		const catContent = generateDefinitionForCatalog(catName, catalogs[catName]);
+		const fileName = changeCase.camelCase(catName);
+		writeFileSync(`${CATALOGS_OUT_DIR}/${fileName}.ts`, catContent, {
+			encoding: "utf8",
+			flag: "w",
+		});
+	});
 
-  const indexFile = indexFileForCatalogs(catalogs);
-  writeFileSync(`${CATALOGS_OUT_DIR}/index.ts`, indexFile, {
-    encoding: "utf8",
-    flag: "w",
-  });
+	const indexFile = indexFileForCatalogs(catalogs);
+	writeFileSync(`${CATALOGS_OUT_DIR}/index.ts`, indexFile, {
+		encoding: "utf8",
+		flag: "w",
+	});
 }
 
 buildCatalogs();
