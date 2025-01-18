@@ -1,6 +1,6 @@
 {
   "name": "meshtastic-catalogs",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Ready-to-use configurations for meshtastic devices",
   "license": "GPL-3.0-only",
   "scripts": {
@@ -42,8 +42,8 @@
   },
   "author": "lambda2",
   "dependencies": {
-    "@bufbuild/protobuf": "^2.2.3",
-    "@meshtastic/js": "2.5.9-2",
+    "@bufbuild/protobuf": "^1.10.0",
+    "@meshtastic/js": "2.3.7-5",
     "base64-js": "^1.5.1",
     "change-case": "^5.4.4",
     "deep-object-diff": "^1.1.9",
@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.2",
+    "@buf/meshtastic_protobufs.bufbuild_es": "1.10.0-20240906232734-3da561588c55.1",
     "@types/chrome": "^0.0.263",
     "@types/jest": "^29.5.14",
     "@types/node": "^20.14.9",

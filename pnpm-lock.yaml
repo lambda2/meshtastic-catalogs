@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: ^2.2.3
-        version: 2.2.3
+        specifier: ^1.10.0
+        version: 1.10.0
       '@meshtastic/js':
-        specifier: 2.5.9-2
-        version: 2.5.9-2
+        specifier: 2.3.7-5
+        version: 2.3.7-5
       base64-js:
         specifier: ^1.5.1
         version: 1.5.1
@@ -30,6 +30,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.8.2
         version: 1.9.4
+      '@buf/meshtastic_protobufs.bufbuild_es':
+        specifier: 1.10.0-20240906232734-3da561588c55.1
+        version: 1.10.0-20240906232734-3da561588c55.1(@bufbuild/protobuf@1.10.0)
       '@types/chrome':
         specifier: ^0.0.263
         version: 0.0.263
@@ -744,8 +747,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@bufbuild/protobuf@2.2.3':
-    resolution: {integrity: sha512-tFQoXHJdkEOSwj5tRIZSPNUuXK3RaR7T1nUrPgbYX1pUbvqqaaZAsfo+NXBPsz5rZMSKVFrgK1WL8Q/MSLvprg==}
+  '@buf/meshtastic_protobufs.bufbuild_es@1.10.0-20240906232734-3da561588c55.1':
+    resolution: {tarball: https://buf.build/gen/npm/v1/@buf/meshtastic_protobufs.bufbuild_es/-/meshtastic_protobufs.bufbuild_es-1.10.0-20240906232734-3da561588c55.1.tgz}
+    peerDependencies:
+      '@bufbuild/protobuf': ^1.10.0
+
+  '@bufbuild/protobuf@1.10.0':
+    resolution: {integrity: sha512-QDdVFLoN93Zjg36NoQPZfsVH9tZew7wKDKyV5qRdj8ntT4wQCOradQjRaTdwMhWUYsgKsvCINKKm87FdEk96Ag==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -993,11 +1001,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@jsr/meshtastic__protobufs@2.5.9':
-    resolution: {integrity: sha512-4peQrF3IfA9/d8u60jPuK6HFar2N8OI5y/CLCvWLS6moS5MVGZy3OGrIGZDndRhyIUf7ZDlYGd4W1WLkxOw3Cg==, tarball: https://npm.jsr.io/~/11/@jsr/meshtastic__protobufs/2.5.9.tgz}
-
-  '@meshtastic/js@2.5.9-2':
-    resolution: {integrity: sha512-k3dpUD+ERFs6XkSsMG6hFxeCyR9BU1SuWdJgyR4s20R62cVqBU6KyQLAk5lXxwwGX2zovjvB5/HY1r1MjZGbDA==}
+  '@meshtastic/js@2.3.7-5':
+    resolution: {integrity: sha512-77wYoCl83PgRLkvWE8ko0YFm5LbolrfFPqoBkwLd2AFgZOHGsHTlUwA7cj82yhZM3f4mf7yTFxl+8CBawEAXRA==}
 
   '@rollup/plugin-alias@3.1.9':
     resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
@@ -3995,7 +4000,11 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@bufbuild/protobuf@2.2.3': {}
+  '@buf/meshtastic_protobufs.bufbuild_es@1.10.0-20240906232734-3da561588c55.1(@bufbuild/protobuf@1.10.0)':
+    dependencies:
+      '@bufbuild/protobuf': 1.10.0
+
+  '@bufbuild/protobuf@1.10.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -4274,14 +4283,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
     optional: true
 
-  '@jsr/meshtastic__protobufs@2.5.9':
+  '@meshtastic/js@2.3.7-5':
     dependencies:
-      '@bufbuild/protobuf': 2.2.3
-
-  '@meshtastic/js@2.5.9-2':
-    dependencies:
-      '@bufbuild/protobuf': 2.2.3
-      '@meshtastic/protobufs': '@jsr/meshtastic__protobufs@2.5.9'
       crc: 4.3.2
       ste-simple-events: 3.0.11
       tslog: 4.9.3
