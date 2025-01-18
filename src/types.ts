@@ -1,7 +1,49 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { type Protobuf, Types } from "@meshtastic/js";
+import * as admin_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/admin_pb.js";
+import * as cannedmessages_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/cannedmessages_pb.js";
+import * as channel_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/channel_pb.js";
+import * as config_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/config_pb.js";
+import * as mesh_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/mesh_pb.js";
+import * as module_config_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/module_config_pb.js";
+import * as portnums_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/portnums_pb.js";
+import * as paxcount_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/paxcount_pb.js";
+import * as remote_hardware_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/remote_hardware_pb.js";
+import * as telemetry_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/telemetry_pb.js";
+import * as xmodem_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/xmodem_pb.js";
+import * as apponly_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/apponly_pb.js";
+import * as clientonly_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/clientonly_pb.js";
+import * as connection_status_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/connection_status_pb.js";
+import * as deviceonly_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/deviceonly_pb.js";
+import * as localonly_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/localonly_pb.js";
+import * as mqtt_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/mqtt_pb.js";
+import * as rtttl_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/rtttl_pb.js";
+import * as storeforward_pb_js from "@buf/meshtastic_protobufs.bufbuild_es/meshtastic/storeforward_pb.js";
+
+declare namespace protobufs {
+	export {
+		admin_pb_js as Admin,
+		apponly_pb_js as AppOnly,
+		cannedmessages_pb_js as CannedMessages,
+		channel_pb_js as Channel,
+		clientonly_pb_js as ClientOnly,
+		config_pb_js as Config,
+		connection_status_pb_js as ConnectionStatus,
+		deviceonly_pb_js as DeviceOnly,
+		localonly_pb_js as LocalOnly,
+		mesh_pb_js as Mesh,
+		module_config_pb_js as ModuleConfig,
+		mqtt_pb_js as Mqtt,
+		paxcount_pb_js as PaxCount,
+		portnums_pb_js as Portnums,
+		remote_hardware_pb_js as RemoteHardware,
+		rtttl_pb_js as Rtttl,
+		storeforward_pb_js as StoreForward,
+		telemetry_pb_js as Telemetry,
+		xmodem_pb_js as Xmodem,
+	};
+}
 
 type DeepPartial<T> = {
 	[P in keyof T]?: DeepPartial<T[P]>;
