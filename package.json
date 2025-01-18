@@ -1,6 +1,6 @@
 {
   "name": "meshtastic-catalogs",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Ready-to-use configurations for meshtastic devices",
   "license": "GPL-3.0-only",
   "scripts": {
@@ -42,6 +42,9 @@
   },
   "author": "lambda2",
   "dependencies": {
+    "@bufbuild/protobuf": "^2.2.3",
+    "@meshtastic/js": "2.5.9-2",
+    "base64-js": "^1.5.1",
     "change-case": "^5.4.4",
     "deep-object-diff": "^1.1.9",
     "deepmerge": "^4.3.1"
