@@ -117,4 +117,4 @@ function buildCatalogs() {
 	});
 }
 
-buildCatalogs();
+// buildCatalogs();
